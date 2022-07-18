@@ -86,7 +86,13 @@ class AthleteController extends Controller
      */
     public function edit($id)
     {
-        
+        {
+            $athlete = Athlete::findOrFail($id);
+            $categories = Category::all();
+            $nationalities = Nationality::all();
+    
+            return view('admin.athletes.edit', compact('athlete', 'categories', 'nationalities'));
+        }
     }
 
     /**
@@ -98,7 +104,25 @@ class AthleteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        {
+            $request->validate($this->getValidationRules());
+            $data = $request->all();
+            $athlete = Athlete::findOrFail($id);
+            // $post ->fill($data);
+            // $post->slug = $this->generatePostSlugFromTitle($post->title);
+            // $post->save();
+    
+            // $data['slug'] = Post::generatePostSlugFromTitle($data['title']);
+            $athlete->update($data);
+    
+            if ($data['categories']) {
+                $athlete->categories()->sync($data['categories']);
+            } else {
+                $athlete->categories()->sync([]);
+            }
+    
+            return redirect()->route('admin.athletes.show', ['athlete' => $athlete->id]);
+        }
     }
 
     /**

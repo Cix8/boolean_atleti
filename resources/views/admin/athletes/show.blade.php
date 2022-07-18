@@ -20,8 +20,8 @@
     
     
     </p>
-{{-- 
-   <a class="btn btn-primary" href="{{route('admin.athletes.edit ', ['athlete' => $athletes->id])}}" >Modifica</a> --}}
+
+   <a class="btn btn-primary" href="{{route('admin.athletes.edit', ['athlete' => $athletes->id])}}" >Modifica</a>
 
 
    <form action="{{ route('admin.athletes.destroy', ['athlete' => $athletes->id]) }}" method="POST">

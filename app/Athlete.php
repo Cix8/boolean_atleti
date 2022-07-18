@@ -11,7 +11,8 @@ class Athlete extends Model
     protected $fillable
     = [
         'name',
-        'genre'
+        'genre',
+        'nationality_id'
     ];
 
 

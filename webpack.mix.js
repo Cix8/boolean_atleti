@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,5 +12,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+ mix.js('resources/js/app.js', 'public/js')
+ .sass('resources/sass/app.scss', 'public/css')
+ .options({
+     processCssUrls: false
+ });
+
+mix.js('resources/js/front.js', 'public/js');
+
+mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
+
