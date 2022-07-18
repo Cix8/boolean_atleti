@@ -12,36 +12,7 @@ class NationalitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        $countries = [
-            [
-                "name" => "Italia",
-                "acronym" => "IT"
-            ],
-            [
-                "name" => "Stati Uniti d'America",
-                "acronym" => "USA"
-            ],
-            [
-                "name" => "Cina",
-                "acronym" => "CHN"
-            ],
-            [
-                "name" => "Regno Unito",
-                "acronym" => "GBR"
-            ],
-            [
-                "name" => "Germania",
-                "acronym" => "GER"
-            ],
-            [
-                "name" => "Marocco",
-                "acronym" => "MAR"
-            ],
-            [
-                "name" => "Cuba",
-                "acronym" => "CUB"
-            ],
-        ];
+        $countries = config('disciplines')["countries"];
 
         foreach($countries as $country) {
             $new_country = new Nationality();

@@ -12,48 +12,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = [
-            [
-                "name" =>  "100m stile rana",
-                "discipline" => "Nuoto",
-                "genre" => "Maschile"
-            ],
-            [
-                "name" =>  "200m stile libero",
-                "discipline" => "Nuoto",
-                "genre" => "Femminile"
-            ],
-            [
-                "name" =>  "Trampolino",
-                "discipline" => "Ginnastica",
-                "genre" => "Femminile"
-            ],
-            [
-                "name" => "Anelli",
-                "discipline" => "Ginnastica",
-                "genre" => "Maschile"
-            ],
-            [
-                "name" => "Greco-romana",
-                "discipline" => "Lotta",
-                "genre" => "Maschile"
-            ],
-            [
-                "name" => "3000 metri siepi",
-                "discipline" => "Atletica Leggera",
-                "genre" => "Maschile"
-            ],
-            [
-                "name" => "100 metri ostacoli",
-                "discipline" => "Atletica Leggera",
-                "genre" => "Femminile"
-            ],
-            [
-                "name" => "Lancio del disco",
-                "discipline" => "Atletica Leggera",
-                "genre" => "Femminile"
-            ]
-        ];
+        $categories = config('discipline')["categories"];
 
         foreach($categories as $category) {
             $new_category = new Category();

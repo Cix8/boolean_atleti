@@ -12,28 +12,7 @@ class AtheletesTableSeeder extends Seeder
      */
     public function run()
     {
-        $athlets = [
-            [
-                "name" => "Valarie Allman",
-                "genre" => "Donna"
-            ],
-            [
-                "name" => "Kendra Harrison",
-                "genre" => "Donna"
-            ],
-            [
-                "name" => "Soufiane el-Bakkali",
-                "genre" => "Uomo"
-            ],
-            [
-                "name" => "Luis Orta",
-                "genre" => "Uomo"
-            ],
-            [
-                "name" => "Nicolò Martinenghi",
-                "genre" => "Uomo"
-            ]
-        ];
+        $athlets = config('discipline')["athlets"];
 
         foreach($athlets as $athlete) {
             $new_athlete = new Athlete();
