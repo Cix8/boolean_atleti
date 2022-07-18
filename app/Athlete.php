@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Athlete extends Model
 {
+
+    protected $fillable
+    = [
+        'name',
+        'genre'
+    ];
+
+
     public function nationality() {
         return $this->belongsTo('App\Nationality');
     }
