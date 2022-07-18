@@ -12,7 +12,7 @@ class NationalitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        $countries = config('disciplines')["countries"];
+        $countries = config('discipline')["countries"];
 
         foreach($countries as $country) {
             $new_country = new Nationality();
