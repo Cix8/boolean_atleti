@@ -60,8 +60,8 @@ class AthleteController extends Controller
         if ($data['categories']) {
             $athlete->categories()->sync($data['categories']);
         }
-
-        return redirect()->route('admin.athletes.show ', ['athlete' => $athlete->id]);
+        
+        return redirect()->route('admin.athletes.show',['athlete' => $athlete->id]);
     }
 
     /**
@@ -109,7 +109,10 @@ class AthleteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $athlete = Athlete::findOrFail($id);
+        $athlete->categories()->sync([]);
+        $athlete->delete();
+        return redirect()->route('admin.athletes.index');
     }
 
 
@@ -119,7 +122,7 @@ class AthleteController extends Controller
         return [
             'name' => 'required|max:255',
             'genre' => 'required',
-            'nationality' => 'required',
+            'nationality_id' => 'required',
             'categories' => 'required',
         ];
     }

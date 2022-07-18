@@ -21,7 +21,7 @@
       <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" > 
     </div>
     <div class="form-group">
-        <label for="name">Genere Atleta</label>
+        <label for="genre">Genere Atleta</label>
         <select class="form-control" id="genre" name="genre"> 
         <option value="Donna">Donna</option>
         <option value="Uomo">Uomo</option>
@@ -29,11 +29,11 @@
     </div>
 
     <div class="form-group">
-      <label for="nationality">Nazionalità</label>
-      <select class="form-control" id="nationality" name="nationality"> 
+      <label for="nationality_id">Nazionalità</label>
+      <select class="form-control" id="nationality_id" name="nationality_id"> 
         <option value="">Nessuna</option>
         @foreach ($nationalities as $nationality)
-        <option value="{{ $nationality->id }}" {{ old('nationality') == $nationality->id ? 'selected' : '' }} > {{ $nationality->name }}</option>
+        <option value="{{ $nationality->id }}" {{ old('nationality_id') == $nationality->id ? 'selected' : '' }} > {{ $nationality->name }}</option>
             
         @endforeach
     </select>
